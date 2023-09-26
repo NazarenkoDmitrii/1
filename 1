@@ -1,1 +1,39 @@
 ну вот и первый файл
+bool search(vector<int>& a, int x) {
+    int l = 0, r = a.size();
+    while (r - l > 1) {
+        int mid = l + (r - l) / 2;
+        if (a[mid] <= x) {
+            l = mid;
+        } else {
+            r = mid;
+        }
+    }
+    return (a[l] == x);
+}
+
+int search_r(vector<int>& a, int x) {
+    int l = 0, r = a.size();
+    while (r - l > 1) {
+        int mid = l + (r - l) / 2;
+        if (a[mid] > x) {
+            r = mid;
+        } else {
+            l = mid;
+        }
+    }
+    return r - 1;
+}
+
+int search_l(vector<int>& a, int x) {
+    int l = 0, r = a.size();
+    while (r - l > 1) {
+        int mid = l + (r - l) / 2;
+        if (a[mid] < x) {
+            l = mid;
+        } else {
+            r = mid;
+        }
+    }
+    return l;
+}
